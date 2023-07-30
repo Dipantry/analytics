@@ -1,0 +1,36 @@
+{
+    "name": "dipantry/analytics",
+    "description": "Analytics for Dipantry usages",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0.0|^10.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "php-coveralls/php-coveralls": "^2.1",
+        "orchestra/testbench": "^7.0",
+        "ext-openssl": "*"
+    },
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "Auriga Aristo",
+            "email": "aurigaaristo@gmail.com",
+            "homepage": "https://aurigaaristo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dipantry\\Analytics\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dipantry\\Rajaongkir\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
