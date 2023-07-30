@@ -13,13 +13,15 @@
   "require": {
     "php": "^8.0",
     "illuminate/support": "^9.0.0|^10.0.0",
-    "ext-intl": "*"
+    "mobiledetect/mobiledetectlib": "^3.74.0",
+    "jaybizzle/crawler-detect": "^1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.1",
     "php-coveralls/php-coveralls": "^2.1",
     "orchestra/testbench": "^7.0",
-    "ext-openssl": "*"
+    "ext-openssl": "*",
+    "ext-intl": "*"
   },
   "authors": [
     {

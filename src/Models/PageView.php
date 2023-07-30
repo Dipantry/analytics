@@ -4,6 +4,17 @@ namespace Dipantry\Analytics\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\PageView
+ *
+ * @property int $id
+ * @property string|null $session
+ * @property string $uri
+ * @property string|null $source
+ * @property string $country
+ * @property string|null $browser
+ * @property string $device
+ */
 class PageView extends Model
 {
     /** @var array */
