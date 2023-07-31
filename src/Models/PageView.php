@@ -3,7 +3,6 @@
 namespace Dipantry\Analytics\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Locale;
 
 /**
  * App\Models\PageView
@@ -33,11 +32,6 @@ class PageView extends Model
         $this->attributes['source'] = $value
             ? preg_replace('/https?:\/\/(www\.)?([a-z\-.]+)\/?.*/i', '$2', $value)
             : $value;
-    }
-
-    public function setCountryAttribute($value): void
-    {
-        $this->attributes['country'] = Locale::getDisplayRegion($value, 'en');
     }
 
     public function getTypeAttribute($value): string
