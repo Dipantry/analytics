@@ -4,10 +4,48 @@ namespace Dipantry\Analytics;
 
 use Detection\MobileDetect;
 use Dipantry\Analytics\Traits\Devices;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class Agent extends MobileDetect
 {
     use Devices;
+
+    /**
+     * @var CrawlerDetect
+     */
+    protected static CrawlerDetect $crawlerDetect;
+
+    public function __construct(array $headers = null, $userAgent = null)
+    {
+        parent::__construct($headers, $userAgent);
+        static::$crawlerDetect = new CrawlerDetect();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function __call($name, $arguments)
+    {
+        // Make sure the name starts with `is`, otherwise
+        if (!str_starts_with($name, 'is')) {
+            throw new \BadMethodCallException("No such method exists: $name");
+        }
+
+        $key = substr($name, 2);
+        $this->matchUAAgainstKey($key);
+    }
+
+    /**
+     * @return CrawlerDetect
+     */
+    public function getCrawlerDetect(): CrawlerDetect
+    {
+        if (static::$crawlerDetect === null) {
+            static::$crawlerDetect = new CrawlerDetect();
+        }
+
+        return static::$crawlerDetect;
+    }
 
     /**
      * Get accept languages
@@ -226,19 +264,5 @@ class Agent extends MobileDetect
         }
 
         return false;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function __call($name, $arguments)
-    {
-        // Make sure the name starts with `is`, otherwise
-        if (!str_starts_with($name, 'is')) {
-            throw new \BadMethodCallException("No such method exists: $name");
-        }
-
-        $key = substr($name, 2);
-        $this->matchUAAgainstKey($key);
     }
 }

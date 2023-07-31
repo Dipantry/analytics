@@ -2,8 +2,6 @@
 
 namespace Dipantry\Analytics\Traits;
 
-use Jaybizzle\CrawlerDetect\CrawlerDetect;
-
 trait Devices
 {
     /**
@@ -90,12 +88,6 @@ trait Devices
         'Watch' => 'SM-V700',
     );
 
-
-    /**
-     * @var CrawlerDetect
-     */
-    protected static CrawlerDetect $crawlerDetect;
-
     public static function getBrowsers(): array
     {
         return static::mergeRules(
@@ -180,17 +172,5 @@ trait Devices
         }
 
         return $merged;
-    }
-
-    /**
-     * @return CrawlerDetect
-     */
-    public function getCrawlerDetect(): CrawlerDetect
-    {
-        if (static::$crawlerDetect === null) {
-            static::$crawlerDetect = new CrawlerDetect();
-        }
-
-        return static::$crawlerDetect;
     }
 }

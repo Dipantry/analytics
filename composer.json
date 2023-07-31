@@ -38,7 +38,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Dipantry\\Rajaongkir\\Tests\\": "tests/"
+      "Dipantry\\Analytics\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",
