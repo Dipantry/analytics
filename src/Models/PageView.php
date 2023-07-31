@@ -27,6 +27,14 @@ class PageView extends Model
         'device',
     ];
 
+    protected $table = 'page_views';
+
+    public function __construct(array $attributes = [])
+    {
+        $this->table = config('analytics.table_prefix') . 'page_views';
+        parent::__construct($attributes);
+    }
+
     public function setSourceAttribute($value): void
     {
         $this->attributes['source'] = $value
