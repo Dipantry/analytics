@@ -5,14 +5,11 @@ namespace Dipantry\Analytics\Tests\Feature;
 use Dipantry\Analytics\Http\Middleware\Analytics;
 use Dipantry\Analytics\Models\PageView;
 use Dipantry\Analytics\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
 class AnalyticsTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function a_page_view_can_be_tracked()
     {

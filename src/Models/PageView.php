@@ -3,6 +3,7 @@
 namespace Dipantry\Analytics\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Locale;
 
 /**
  * App\Models\PageView
@@ -36,7 +37,7 @@ class PageView extends Model
 
     public function setCountryAttribute($value): void
     {
-        $this->attributes['country'] = \Locale::getDisplayRegion($value, 'en');
+        $this->attributes['country'] = Locale::getDisplayRegion($value, 'en');
     }
 
     public function getTypeAttribute($value): string

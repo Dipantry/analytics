@@ -3,9 +3,9 @@
 namespace Dipantry\Analytics\Tests;
 
 use Illuminate\Foundation\Application;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class FakeServiceProvider extends ServiceProvider
+class FakeServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
@@ -17,10 +17,6 @@ class FakeServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/analytics.php',
             'analytics',
-        );
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/analytics_testing.php',
-            'analytics_testing',
         );
 
         $databasePath = __DIR__ . '/../database/migrations';
